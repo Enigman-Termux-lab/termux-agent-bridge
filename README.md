@@ -1,6 +1,6 @@
 # ⚡ Termux Antigravity Bridge (MCP) for Gemini Spark
 
-Двусторонний защищённый мост по протоколу **Model Context Protocol (MCP)**, позволяющий веб-ассистенту **Gemini Spark** (на ПК или телефоне с подпиской Google One AI Premium / Gemini Pro) удалённо управлять терминалом **Termux на Android** и агентом **Antigravity CLI (`agy`)**.
+Односторонний защищённый мост по протоколу **Model Context Protocol (MCP)**: позволяет облачному ассистенту **Gemini Spark** (на ПК или смартфоне) удалённо управлять терминалом **Termux на Android** (а также CLI на ПК) и запускать кодинг-агента **Antigravity CLI (`agy`)**.
 
 ---
 
