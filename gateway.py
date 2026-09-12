@@ -880,7 +880,8 @@ def print_banner(config: dict[str, Any]) -> None:
     bold = colors["bold"]
 
     print("=" * 64)
-    print(f"{bold}🚀 Termux Agent Gateway v{GATEWAY_VERSION}{reset}")
+    print(f"{bold}🚀 Termux Agent Bridge v{GATEWAY_VERSION}{reset}")
+    print("   💻 PC / AI Agent  ════[ MCP / SSE ]════►  📱 Android Termux")
     print("=" * 64)
     print(f"Режим безопасности: {c}{bold}{mode.upper()}{reset}")
     if mode == "monitor":

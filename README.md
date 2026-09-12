@@ -1,11 +1,27 @@
-# 🚀 Termux Agent Bridge (MCP)
+# 🚀 Termux Agent Bridge (MCP) v2.0
+> **Управляй смартфоном Android прямо из любимых ИИ-агентов на ПК через протокол Model Context Protocol!**
 
-Универсальный, открытый и безопасный шлюз по протоколу **Model Context Protocol (MCP)**, превращающий смартфон на **Android / Termux** в мощную управляемую среду для любых современных ИИ-агентов:
-* **OpenAI Codex**
-* **Claude Code (Anthropic CLI)**
-* **Google Antigravity & Gemini CLI**
-* **Gemini Spark (Connected Apps)**
-* **Cursor & Windsurf IDE**
+<p align="center">
+  <img src="https://img.shields.io/badge/Release-v2.0.0-success?style=for-the-badge&logo=github" alt="Release v2.0.0">
+  <img src="https://img.shields.io/badge/Protocol-MCP%202026-blue?style=for-the-badge&logo=fastapi" alt="MCP">
+  <img src="https://img.shields.io/badge/Platform-Android%20Termux-brightgreen?style=for-the-badge&logo=android" alt="Android Termux">
+  <img src="https://img.shields.io/badge/Control-PC%20%E2%9E%A1%EF%B8%8F%20Android-orange?style=for-the-badge&logo=powershell" alt="PC to Android">
+  <img src="https://img.shields.io/badge/Security-2--Level%20Auth-red?style=for-the-badge&logo=shield" alt="Security">
+</p>
+
+```text
+ 💻 DESKTOP PC / CLOUD AI                🌐 GLOBAL INTERNET                  📱 ANDROID / TERMUX
+ ╔═════════════════════════╗            ╔═════════════════════════╗           ╔═════════════════════════╗
+ ║   🧠 OpenAI Codex       ║            ║                         ║           ║   🤖 FastMCP Gateway    ║
+ ║   ⚡ Claude Code (CLI)  ║───────────►║    Ngrok SSE Tunnel     ║──────────►║   💻 Bash / Python / agy║
+ ║   🚀 Google Antigravity ║  MCP JSON  ║   (*.ngrok-free.dev)    ║  Encrypted║   🔋 Battery & Sensors  ║
+ ║   ✨ Gemini Spark       ║    RPC     ║                         ║Capability ║   🔔 Android Push Alerts║
+ ╚═════════════════════════╝            ╚═════════════════════════╝           ╚═════════════════════════╝
+            │                                                                              │
+            └───────────────────────── Прямой удаленный контроль ─────────────────────────┘
+```
+
+Универсальный, открытый и безопасный шлюз по протоколу **Model Context Protocol (MCP)**, превращающий смартфон на **Android / Termux** в мощную управляемую среду для любых современных ИИ-агентов.
 
 ---
 
@@ -20,7 +36,7 @@
                       [ Ngrok Tunnel (*.ngrok-free.dev) ]
                                          │
                                          ▼ (Secret Capability Path)
-                    [ Termux Agent Gateway (Python / FastMCP) ]
+                    [ Termux Agent Bridge (Python / FastMCP) ]
                                          │
         ┌───────────────────┬────────────┴───────┬───────────────────┐
         ▼                   ▼                    ▼                   ▼
