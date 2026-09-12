@@ -108,7 +108,7 @@ run_onboarding_wizard() {
     fi
 
     # Ngrok Domain
-    local default_domain="unstaffed-clamshell-overplant.ngrok-free.dev"
+    local default_domain="your-domain.ngrok-free.dev"
     echo ""
     echo -e "Введите статический домен ngrok (Static Domain):"
     read -r -p "Домен [$default_domain]: " input_domain
@@ -163,7 +163,6 @@ EOF
 stop_gateway() {
     echo -e "${CLR_YELLOW}[*] Остановка Termux Agent Gateway...${CLR_RESET}"
     pkill -f "gateway.py" 2>/dev/null || true
-    pkill -f "agy_bridge.py" 2>/dev/null || true
     pkill -f "ngrok" 2>/dev/null || true
     notify "🔴 Termux Agent Gateway остановлен"
     echo -e "${CLR_GREEN}[✓] Шлюз успешно остановлен.${CLR_RESET}"
@@ -172,7 +171,7 @@ stop_gateway() {
 show_status() {
     local py_running=0
     local ngrok_running=0
-    if pgrep -f "gateway.py" >/dev/null 2>&1 || pgrep -f "agy_bridge.py" >/dev/null 2>&1; then
+    if pgrep -f "gateway.py" >/dev/null 2>&1; then
         py_running=1
     fi
     if pgrep -f "ngrok" >/dev/null 2>&1; then
@@ -181,7 +180,7 @@ show_status() {
 
     echo -e "${CLR_CYAN}${CLR_BOLD}=== Termux Agent Gateway: Статус ===${CLR_RESET}"
     if [ "$py_running" -eq 1 ]; then
-        echo -e "Сервер Python:    ${CLR_GREEN}АКТИВЕН (PID $(pgrep -f 'gateway.py\|agy_bridge.py' | tr '\n' ' '))${CLR_RESET}"
+        echo -e "Сервер Python:    ${CLR_GREEN}АКТИВЕН (PID $(pgrep -f 'gateway.py' | tr '\n' ' '))${CLR_RESET}"
     else
         echo -e "Сервер Python:    ${CLR_RED}ВЫКЛЮЧЕН${CLR_RESET}"
     fi
@@ -213,13 +212,13 @@ start_gateway() {
     . "$CONFIG_FILE"
 
     local port="${BRIDGE_PORT:-8000}"
-    local domain="${NGROK_DOMAIN:-unstaffed-clamshell-overplant.ngrok-free.dev}"
+    local domain="${NGROK_DOMAIN:-your-domain.ngrok-free.dev}"
     local secret="${SECRET_PATH:-gateway-default}"
     local mode="${GATEWAY_MODE:-interactive}"
     local full_url="https://${domain}/${secret}/sse"
 
     # Проверка, запущен ли уже
-    if pgrep -f "gateway.py" >/dev/null 2>&1 || pgrep -f "agy_bridge.py" >/dev/null 2>&1; then
+    if pgrep -f "gateway.py" >/dev/null 2>&1; then
         echo -e "${CLR_YELLOW}[!] Шлюз уже запущен!${CLR_RESET}"
         echo -e "1) Перезапустить (Restart)"
         echo -e "2) Остановить (Stop)"
@@ -239,7 +238,6 @@ start_gateway() {
 
     # Очистка старых зависших процессов
     pkill -f "gateway.py" 2>/dev/null || true
-    pkill -f "agy_bridge.py" 2>/dev/null || true
     pkill -f "ngrok" 2>/dev/null || true
     sleep 1
 
@@ -259,10 +257,6 @@ start_gateway() {
 
     # Запуск сервера Python
     local server_script="$SCRIPT_DIR/gateway.py"
-    if [ ! -f "$server_script" ]; then
-        server_script="$SCRIPT_DIR/agy_bridge.py"
-    fi
-
     echo -e "[*] Запуск Python MCP Server ($server_script)..."
     python "$server_script" &
     local py_pid=$!
