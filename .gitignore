@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Config & Environment
+.env
+*.env
+!config.example.env
+*.sha256
+
+# Temporary / workspace
+workspace/
+/tmp/
+test_ws/
+*.log
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
